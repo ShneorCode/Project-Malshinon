@@ -6,7 +6,7 @@ namespace Malshinon.Utils
 {
     public static class Logger
     {
-        private static readonly string LogFilePath = "Logs/log.txt";
+        private static readonly string LogFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Logs", "log.txt");
         private static string _connectionString;
 
         public static void Initialize(string connectionString)
