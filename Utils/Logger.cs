@@ -6,17 +6,29 @@ namespace Malshinon.Utils
 {
     public static class Logger
     {
-        private static readonly string LogFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Logs", "log.txt");
+
+
+        private static string GetProjectPath()
+        {
+            string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+
+            return Directory.GetParent(baseDir).Parent.Parent.Parent.FullName;
+        }
+
+
+        private static readonly string LogFilePath = Path.Combine(GetProjectPath(), "Logs", "log.txt");
+
+
         private static string _connectionString;
 
         public static void Initialize(string connectionString)
         {
             _connectionString = connectionString;
             string logDirectory = Path.GetDirectoryName(LogFilePath);
-            if (!Directory.Exists(logDirectory))
-            {
-                Directory.CreateDirectory(logDirectory);
-            }
+            //if (!Directory.Exists(logDirectory))
+            //{
+            //    Directory.CreateDirectory(logDirectory);
+            //}
         }
 
         public static void Log(string level, string activityType, string description)

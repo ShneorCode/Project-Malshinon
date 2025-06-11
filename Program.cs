@@ -3,7 +3,7 @@ using Malshinon.Services;
 using Malshinon.Utils;
 using MySql.Data.MySqlClient; 
 using System;
-using System.IO;
+
 
 namespace Malshinon
 {
@@ -11,9 +11,8 @@ namespace Malshinon
     {
         private const string ConnectionString = "Server=localhost;Port=3306;Database=malshinon;Uid=root;Pwd=;";
 
-        static void Main(string[] args)
+        static void Main()
         {
-            Console.OutputEncoding = System.Text.Encoding.UTF8; 
 
             Logger.Initialize(ConnectionString);
 
