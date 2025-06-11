@@ -10,9 +10,16 @@ namespace Malshinon.Utils
         public static string GenerateSecretCode(int length = 12)
         {
             var random = new Random();
-            return new string(Enumerable.Range(0, length)
-                .Select(_ => chars[random.Next(chars.Length)])
-                .ToArray());
+            var code = "";
+
+            for (int i = 0; i < length; i++)
+            {
+                int index = random.Next(chars.Length);
+                code += chars[index];
+            }
+
+            return code;
         }
+
     }
 }

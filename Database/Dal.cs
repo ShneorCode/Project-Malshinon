@@ -97,7 +97,7 @@ namespace Malshinon.Database
                 string query = "INSERT INTO People (secret_code, full_name) VALUES (@code, @name)";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("@code", secretCode);
-                cmd.Parameters.AddWithValue("@name", (object)fullName ?? DBNull.Value); // Handle null full name
+                cmd.Parameters.AddWithValue("@name", (object)fullName ?? DBNull.Value);
                 cmd.ExecuteNonQuery();
 
                 long newId = cmd.LastInsertedId;
@@ -266,7 +266,7 @@ namespace Malshinon.Database
                 SecretCode = reader.GetString("secret_code"),
                 FullName = reader.IsDBNull(reader.GetOrdinal("full_name")) ? null : reader.GetString("full_name"),
                 CreatedAt = reader.GetDateTime("created_at"),
-                UpdatedAt = reader.GetDateTime("updated_at"),
+                //UpdatedAt = reader.GetDateTime("updated_at"),
                 TotalReportsSubmitted = reader.GetInt32("total_reports_submitted"),
                 AverageReportLength = reader.GetDouble("average_report_length")
             };
