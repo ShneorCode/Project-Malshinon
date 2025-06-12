@@ -2,15 +2,13 @@ using Malshinon.Models;
 using Malshinon.Utils;
 using System;
 using System.IO;
-using System.Text.RegularExpressions;
 
 namespace Malshinon.Services
 {
     public class CsvImporter
     {
-        private readonly ReportService _reportService; // This already has access to personService and alertService indirectly
-        // We do NOT need direct access to _reportService._personService or _reportService._dal
-        // We will call public methods on _reportService instead.
+        private readonly ReportService _reportService; 
+
 
         public CsvImporter(ReportService reportService)
         {
@@ -65,7 +63,6 @@ namespace Malshinon.Services
 
                     try
                     {
-                        // Use the public methods of ReportService to get/create persons
                         Person reporter = _reportService.GetOrCreatePerson(reporterId, isReporterName);
                         Person target = _reportService.GetOrCreatePerson(targetId, isTargetName);
 
@@ -76,7 +73,6 @@ namespace Malshinon.Services
                             continue;
                         }
 
-                        // Use the new public method SubmitImportedReport
                         _reportService.SubmitImportedReport(reporter, target, reportText, submissionTime);
 
                         importedCount++;
@@ -84,7 +80,7 @@ namespace Malshinon.Services
                     catch (Exception ex)
                     {
                         Logger.Error("CsvImporter", $"Error processing CSV line {i + 1}: {line}. Error: {ex.Message}");
-                        Console.WriteLine($"Error processing CSV line {i + 1}: {line}. Error: {ex.Message}"); // Added console output for immediate feedback
+                        Console.WriteLine($"Error processing CSV line {i + 1}: {line}. Error: {ex.Message}"); 
                         errorCount++;
                     }
                 }

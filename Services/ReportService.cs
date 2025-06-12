@@ -48,8 +48,8 @@ namespace Malshinon.Services
             };
             _dal.AddReport(newReport);
 
-            string reporterNameForLog = reporter.FullName ?? reporter.SecretCode; // השם אם קיים, אחרת הקוד
-            string targetNameForLog = target.FullName ?? target.SecretCode;     // השם אם קיים, אחרת הקוד
+            string reporterNameForLog = reporter.FullName ?? reporter.SecretCode;
+            string targetNameForLog = target.FullName ?? target.SecretCode;    
             Logger.Info("ReportService", $"Report submitted by '{reporterNameForLog}' (Code: {reporter.SecretCode}) about '{targetNameForLog}' (Code: {target.SecretCode}). Report: \"{reportText}\"");
 
             int totalReportsByReporter = _dal.GetReportCountByReporterId(reporter.PersonId);
@@ -76,8 +76,8 @@ namespace Malshinon.Services
             };
             _dal.AddReport(newReport);
 
-            string reporterNameForLog = reporter.FullName ?? reporter.SecretCode; // השם אם קיים, אחרת הקוד
-            string targetNameForLog = target.FullName ?? target.SecretCode;     // השם אם קיים, אחרת הקוד
+            string reporterNameForLog = reporter.FullName ?? reporter.SecretCode; 
+            string targetNameForLog = target.FullName ?? target.SecretCode;    
             Logger.Info("ReportService", $"Imported report by '{reporterNameForLog}' (Code: {reporter.SecretCode}) about '{targetNameForLog}' (Code: {target.SecretCode}) at {submissionTime}. Report: \"{reportText}\"");
 
 
