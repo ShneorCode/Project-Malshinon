@@ -87,7 +87,7 @@ namespace Malshinon.Services
             Console.Write("Enter Report Text: ");
             string reportText = Console.ReadLine();
 
-            if (string.IsNullOrWhiteSpace(reporterIdentifier) || string.IsNullOrWhiteSpace(targetIdentifier) || string.IsNullOrWhiteSpace(reportText))
+            if (string.IsNullOrWhiteSpace(reporterIdentifier) || string.IsNullOrWhiteSpace(targetIdTypeInput) || string.IsNullOrWhiteSpace(reporterIdTypeInput) || string.IsNullOrWhiteSpace(targetIdentifier) || string.IsNullOrWhiteSpace(reportText))
             {
                 Console.WriteLine("Error: All fields are required.");
                 return;

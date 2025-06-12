@@ -14,7 +14,7 @@ namespace Malshinon.Database
         public Dal(string connectionString)
         {
             _connectionString = connectionString;
-            Logger.Info("DAL", "DAL initialized with connection string.");
+            //Logger.Info("DAL", "DAL initialized with connection string.");
         }
 
         private MySqlConnection GetConnection()
@@ -318,6 +318,6 @@ namespace Malshinon.Database
             }
             return people;
         }
-       
+
     }
 }
